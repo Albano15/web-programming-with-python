@@ -1,0 +1,53 @@
+c:\Users\1090482313024\desktop\aulaq>py -m venv env 
+	instala o pyton na pasta "aula1" com o nome "env"
+
+C:\Users\1090482313024\Desktop\aula1> ls  
+	comando "list", ele lista os arquivos na pasta "aula1"
+
+C:\Users\1090482313024\Desktop\aula1\env> cd Scripts
+	seleciona/entra na pasta scripts
+
+C:\Users\1090482313024\Desktop\aula1\env\scripts> set-executionpolicy remotesigned currentuser
+	permite que o script "burle" o sistema de segurança da fatec. o currentuser é um parametro que diz "é apenas no meu usuario"
+
+
+PS C:\Users\1090482313024\Desktop\Nova pasta\env\scripts> .\activate 
+	ativa a maquina virtual 
+
+(env) PS C:\Users\1090482313024\Desktop\Nova pasta\env\scripts> pip install flask
+	instala a interface flask
+
+You should consider upgrading via the 'python -m pip install --upgrade pip' command.
+	use o comando que ele te sugere
+____________________________________________________________________________________________
+----dentro do arquivo main.py -----
+
+from flask import Flask, render_template
+
+app = Flask(__name__)
+
+@app.route('/')
+def index():
+    header = '<head><meta charset="UTF-8">\
+                <meta name="viewport" content="width=device-width, initial-scale=1.0"> \
+                <title>Teste</title> \
+              </head>'
+    footer = '<script>alert("Aqui.")</script>'
+    return render_template('index.html', uma_variavel='Seja bem-vindo', t1='texto', head=header, footer=footer)
+
+@app.route('/aula4')
+def bemvindo():
+    return render_template('aula4.html', Usuario='Rafael', i=0)
+
+
+if __name__ == '__main__':
+    app.run(debug=True)
+
+
+---------------------------------------------------------------------------------------------------------------------
+instalando a connexão mysql
+PS C:\Users\alban\OneDrive\Área de Trabalho\Materias_FATEC\4_Semestre\Programacao_WEB> cd aula8_crud/env
+PS C:\Users\alban\OneDrive\Área de Trabalho\Materias_FATEC\4_Semestre\Programacao_WEB\aula8_crud\env> cd Scripts                                       
+PS C:\Users\alban\OneDrive\Área de Trabalho\Materias_FATEC\4_Semestre\Programacao_WEB\aula8_crud\env\Scripts> .\activate                               
+(env) PS C:\Users\alban\OneDrive\Área de Trabalho\Materias_FATEC\4_Semestre\Programacao_WEB\aula8_crud\env\Scripts> cd ../
+(env) PS C:\Users\alban\OneDrive\Área de Trabalho\Materias_FATEC\4_Semestre\Programacao_WEB\aula8_crud\env> pip install mysql.connector
